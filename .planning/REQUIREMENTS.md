@@ -87,35 +87,35 @@ Requisitos para la primera versión web (deploy estático) orientada a validar e
 
 ## Traceability
 
-Pendiente de completar durante la creación del roadmap.
+Mapeado durante la creación del roadmap (cada requisito v1 aparece exactamente en una fase).
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| SESS-01 | Phase ? | Pending |
-| SESS-02 | Phase ? | Pending |
-| SESS-03 | Phase ? | Pending |
-| SESS-04 | Phase ? | Pending |
-| REST-01 | Phase ? | Pending |
-| REST-02 | Phase ? | Pending |
-| EXDB-01 | Phase ? | Pending |
-| EXDB-02 | Phase ? | Pending |
-| PR-01 | Phase ? | Pending |
-| PR-02 | Phase ? | Pending |
-| PROG-01 | Phase ? | Pending |
-| PROG-02 | Phase ? | Pending |
-| HIST-01 | Phase ? | Pending |
-| HIST-02 | Phase ? | Pending |
-| EQPT-01 | Phase ? | Pending |
-| EQPT-02 | Phase ? | Pending |
-| RET-01 | Phase ? | Pending |
-| RET-02 | Phase ? | Pending |
-| DEPL-01 | Phase ? | Pending |
-| DEPL-02 | Phase ? | Pending |
+| DEPL-01 | Phase 1 | Pending |
+| DEPL-02 | Phase 1 | Pending |
+| SESS-03 | Phase 1 | Pending |
+| SESS-01 | Phase 2 | Pending |
+| SESS-02 | Phase 2 | Pending |
+| SESS-04 | Phase 2 | Pending |
+| REST-01 | Phase 2 | Pending |
+| REST-02 | Phase 2 | Pending |
+| EXDB-01 | Phase 3 | Pending |
+| EXDB-02 | Phase 3 | Pending |
+| PR-01 | Phase 4 | Pending |
+| PR-02 | Phase 4 | Pending |
+| PROG-01 | Phase 4 | Pending |
+| PROG-02 | Phase 4 | Pending |
+| HIST-01 | Phase 5 | Pending |
+| HIST-02 | Phase 5 | Pending |
+| EQPT-01 | Phase 6 | Pending |
+| EQPT-02 | Phase 6 | Pending |
+| RET-01 | Phase 7 | Pending |
+| RET-02 | Phase 7 | Pending |
 
 **Coverage:**
 - v1 requirements: 20 total
-- Mapped to phases: 0
-- Unmapped: 20 ⚠️
+- Mapped to phases: 20
+- Unmapped: 0 ✓
 
 ---
 *Requirements defined: 2026-04-25*  
