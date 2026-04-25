@@ -30,7 +30,11 @@ Decimal phases appear between their surrounding integers in numeric order.
   1. Un usuario puede abrir la app desde GitHub Pages (o equivalente estático) y ver la interfaz inicial sin pasos manuales extra.
   2. Desde un repo limpio, el build/deploy es reproducible siguiendo los pasos documentados.
   3. Si un usuario inicia una sesión y recarga el navegador, puede continuar la misma sesión sin perder el progreso.
-**Plans**: TBD
+**Plans**: 3 plans
+Plans:
+- [ ] 01-PLAN.md — Greenfield Vite+React+TS, `base: './'`, Zod snapshot + Vitest roundtrip + Playwright smoke (Wave 1; DEPL-01/02 + SESS-03 foundation)
+- [ ] 02-PLAN.md — Minimal wizard, empty state, session shell, auto-save + auto-resume, Playwright reload E2E (Wave 2; SESS-03)
+- [ ] 03-PLAN.md — README reproducible build/deploy + GitHub Actions Pages workflow (Wave 2; DEPL-01/02)
 **UI hint**: yes
 
 ### Phase 2: Guided Session + Rest Timer
@@ -105,7 +109,7 @@ Phases execute in numeric order: 2 → 2.1 → 2.2 → 3 → 3.1 → 4
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation + Deploy | 0/TBD | Not started | - |
+| 1. Foundation + Deploy | 0/3 | Not started | - |
 | 2. Guided Session + Rest Timer | 0/TBD | Not started | - |
 | 3. Exercise Library (Video + Cues) | 0/TBD | Not started | - |
 | 4. PRs + Progression (1RM & Overload) | 0/TBD | Not started | - |
