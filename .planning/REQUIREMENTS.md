@@ -11,7 +11,7 @@ Requisitos para la primera versión web (deploy estático) orientada a validar e
 
 - [ ] **SESS-01**: La app muestra una sesión guiada con una “siguiente acción” clara (ejercicio actual → set actual), evitando pantallas en blanco durante el entreno.
 - [ ] **SESS-02**: El usuario puede registrar cada set con: reps reales, peso usado, RIR (o RPE), y timestamp del set.
-- [ ] **SESS-03**: La sesión guarda series “completadas” vs “planificadas” y permite continuar tras recargar el navegador.
+- [x] **SESS-03**: La sesión guarda series “completadas” vs “planificadas” y permite continuar tras recargar el navegador.
 - [ ] **SESS-04**: El usuario puede marcar un ejercicio como realizado/omitido y la sesión refleja el cambio en el resumen.
 
 ### Rest Timer
@@ -93,7 +93,7 @@ Mapeado durante la creación del roadmap (cada requisito v1 aparece exactamente 
 |-------------|-------|--------|
 | DEPL-01 | Phase 1 | Complete |
 | DEPL-02 | Phase 1 | Complete |
-| SESS-03 | Phase 1 | Pending |
+| SESS-03 | Phase 1 | Complete |
 | SESS-01 | Phase 2 | Pending |
 | SESS-02 | Phase 2 | Pending |
 | SESS-04 | Phase 2 | Pending |
