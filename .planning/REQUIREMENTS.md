@@ -51,8 +51,8 @@ Requisitos para la primera versión web (deploy estático) orientada a validar e
 
 ### Deployment (GitHub → navegador)
 
-- [ ] **DEPL-01**: La aplicación se puede publicar en GitHub y ejecutarse en el navegador abriéndola desde el repositorio (objetivo: GitHub Pages u hosting estático equivalente).
-- [ ] **DEPL-02**: El build/deploy queda documentado (pasos reproducibles) y funciona desde un repo limpio.
+- [x] **DEPL-01**: La aplicación se puede publicar en GitHub y ejecutarse en el navegador abriéndola desde el repositorio (objetivo: GitHub Pages u hosting estático equivalente).
+- [x] **DEPL-02**: El build/deploy queda documentado (pasos reproducibles) y funciona desde un repo limpio.
 
 ## v2 Requirements
 
@@ -91,8 +91,8 @@ Mapeado durante la creación del roadmap (cada requisito v1 aparece exactamente 
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| DEPL-01 | Phase 1 | Pending |
-| DEPL-02 | Phase 1 | Pending |
+| DEPL-01 | Phase 1 | Complete |
+| DEPL-02 | Phase 1 | Complete |
 | SESS-03 | Phase 1 | Pending |
 | SESS-01 | Phase 2 | Pending |
 | SESS-02 | Phase 2 | Pending |
