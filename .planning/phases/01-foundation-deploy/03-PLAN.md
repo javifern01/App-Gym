@@ -5,6 +5,8 @@ type: execute
 wave: 2
 depends_on:
   - "01"
+  - "04"
+  - "02"
 files_modified:
   - README.md
   - .github/workflows/deploy-pages.yml

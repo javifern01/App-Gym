@@ -5,6 +5,7 @@ type: execute
 wave: 2
 depends_on:
   - "01"
+  - "04"
 files_modified:
   - src/App.tsx
   - src/persist/snapshot.ts
@@ -78,7 +79,7 @@ Output: Manual `npm run dev` shows full flow; Playwright reload test green.
   <name>Task 1: Components + App shell wiring to snapshot</name>
   <read_first>
     - src/persist/schema.ts, src/persist/snapshot.ts, src/persist/storageKey.ts
-    - src/App.tsx from plan 01
+    - src/App.tsx from plan 01; src/persist from plan 04
     - 01-CONTEXT.md D-12–D-15, D-07
   </read_first>
   <files>src/App.tsx, src/components/WizardScreen.tsx, src/components/EmptyStateScreen.tsx, src/components/SessionScreen.tsx, src/persist/snapshot.ts</files>
