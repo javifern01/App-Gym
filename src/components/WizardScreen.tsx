@@ -56,6 +56,7 @@ export function WizardScreen({ initialPreferences, onSubmit }: Props) {
       <label style={{ display: 'block', marginTop: 12 }}>
         <span style={{ display: 'block', fontWeight: 600 }}>Equipamiento (nota)</span>
         <input
+          data-testid="equipment-note"
           value={equipmentNote}
           onChange={(e) => setEquipmentNote(e.target.value)}
           placeholder="Ej: gym completo"
