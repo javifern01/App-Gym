@@ -3,7 +3,7 @@ import { EmptyStateScreen } from './components/EmptyStateScreen'
 import { SessionScreen } from './components/SessionScreen'
 import { WizardScreen } from './components/WizardScreen'
 import { createInitialSnapshot, loadSnapshot, saveSnapshot } from './persist/snapshot'
-import type { SnapshotV2 } from './persist/schema'
+import type { PreferencesV3, SnapshotV3 } from './persist/schema'
 
 function generateId(): string {
   // crypto.randomUUID is supported in modern browsers; fallback keeps dev/test stable.
@@ -19,10 +19,10 @@ export default function App() {
     return createInitialSnapshot()
   }, [])
 
-  const [snapshot, setSnapshot] = useState<SnapshotV2>(initial)
+  const [snapshot, setSnapshot] = useState<SnapshotV3>(initial)
   const [saveError, setSaveError] = useState<string | null>(null)
 
-  const persist = (next: SnapshotV2) => {
+  const persist = (next: SnapshotV3) => {
     const result = saveSnapshot(next)
     if (!result.ok) {
       console.error('Failed to save snapshot:', result.reason)
@@ -32,7 +32,7 @@ export default function App() {
     }
   }
 
-  const updateSnapshot = (updater: (prev: SnapshotV2) => SnapshotV2) => {
+  const updateSnapshot = (updater: (prev: SnapshotV3) => SnapshotV3) => {
     setSnapshot((prev) => {
       const next = updater(prev)
       persist(next)
@@ -52,45 +52,18 @@ export default function App() {
 
       {showWizard ? (
         <WizardScreen
-          initialPreferences={snapshot.preferences}
+          initialPreferences={snapshot.preferences as PreferencesV3 | undefined}
           onSubmit={(preferences) => {
             updateSnapshot((prev) => ({
               ...prev,
               preferences,
-              session: { ...prev.session, status: prev.session.status ?? 'idle' },
             }))
           }}
         />
       ) : showSession ? (
-        <SessionScreen
-          snapshot={snapshot}
-          onCompleteNextSet={() => {
-            updateSnapshot((prev) => {
-              const sets = prev.session.sets
-              const nextIncompleteIdx = sets.findIndex((s) => s.completed == null)
-              if (nextIncompleteIdx === -1) return prev
-
-              const updatedSets = sets.map((s, idx) =>
-                idx !== nextIncompleteIdx
-                  ? s
-                  : {
-                      ...s,
-                      completed: { reps: s.planned.reps, at: new Date().toISOString() },
-                    }
-              )
-
-              const allDone = updatedSets.every((s) => s.completed != null)
-              return {
-                ...prev,
-                session: {
-                  ...prev.session,
-                  sets: updatedSets,
-                  status: allDone ? 'completed' : 'in_progress',
-                },
-              }
-            })
-          }}
-        />
+        // SessionScreen is a Phase-1 placeholder; replaced entirely in plan 02-07.
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        <SessionScreen snapshot={snapshot as any} onCompleteNextSet={() => undefined} />
       ) : (
         <EmptyStateScreen
           onStartSession={() => {
@@ -101,13 +74,8 @@ export default function App() {
                 status: 'in_progress',
                 id: generateId(),
                 startedAt: new Date().toISOString(),
+                startedAtMs: Date.now(),
                 currentExerciseIndex: 0,
-                exerciseName: prev.session.exerciseName || 'Ejemplo — Press banca',
-                sets: [
-                  { setId: 'set-1', planned: { reps: 8 } },
-                  { setId: 'set-2', planned: { reps: 8 } },
-                  { setId: 'set-3', planned: { reps: 8 } },
-                ],
               },
             }))
           }}
