@@ -48,7 +48,7 @@ Plans:
   3. Al completar un set, se inicia un descanso y al finalizar se avisa (visual + sonido opcional).
   4. El usuario puede omitir/realizar un ejercicio y el resumen de la sesión refleja el cambio.
   5. El usuario puede ver para una sesión la desviación media entre descanso prescrito y descanso real.
-**Plans**: 6/11 plans complete
+**Plans**: 9/11 plans complete
 Plans:
 - [x] 02-01-schema-v3-migration-PLAN.md — Bump SnapshotSchema V2→V3 (D-24) + migrateV2toV3 (D-25); SESS-02 / REST-02 schema (Wave 1)
 - [x] 02-02-css-tokens-and-classes-PLAN.md — Phase 2 CSS tokens + new component classes per UI-SPEC (Wave 1; SESS-01 visual scaffolding)
@@ -56,9 +56,9 @@ Plans:
 - [x] 02-04-fsm-core-PLAN.md — Pure sessionReducer, action creators, seed routine (D-15) (Wave 2; SESS-01/02/04)
 - [x] 02-05-selectors-and-utils-PLAN.md — selectNextAction (SESS-01 contract), formatTime, computeRestDeviation (Wave 2; SESS-01, REST-02)
 - [x] 02-06-primitive-hooks-PLAN.md — useRestTimer / useAudioCue / useVibration / useWakeLock / useUndoableToast (Wave 2; REST-01, SESS-04)
-- [ ] 02-07-session-active-ui-PLAN.md — FocusCard / ExerciseStrip / RestStrip / RestPanel (Wave 3; SESS-01, SESS-02, REST-01)
-- [ ] 02-08-session-aux-ui-PLAN.md — HandoffOverlay / Toast / PauseDialog / SummaryScreen (Wave 3; SESS-01, SESS-04, REST-02)
-- [ ] 02-09-pre-session-ui-updates-PLAN.md — EmptyState seed preview + audio prime; Wizard V3 toggles (Wave 3; SESS-04, REST-01)
+- [x] 02-07-session-active-ui-PLAN.md — FocusCard / ExerciseStrip / RestStrip / RestPanel (Wave 3; SESS-01, SESS-02, REST-01)
+- [x] 02-08-session-aux-ui-PLAN.md — HandoffOverlay / Toast / PauseDialog / SummaryScreen (Wave 3; SESS-01, SESS-04, REST-02)
+- [x] 02-09-pre-session-ui-updates-PLAN.md — EmptyState seed preview + audio prime; Wizard V3 toggles (Wave 3; SESS-04, REST-01)
 - [ ] 02-10-app-orchestration-PLAN.md — useReducer FSM + dispatchTimed + persistence boundary + side-effects + view routing (Wave 4; SESS-01/02/04, REST-01/02)
 - [ ] 02-11-e2e-tests-PLAN.md — Playwright happy-path + skip + pause/resume + migration + reload (Wave 5; SESS-01/02/04, REST-01/02)
 **UI hint**: yes
@@ -123,7 +123,7 @@ Phases execute in numeric order: 2 → 2.1 → 2.2 → 3 → 3.1 → 4
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation + Deploy | 4/4 | Complete    | 2026-04-26 |
-| 2. Guided Session + Rest Timer | 6/11 | In progress       | - |
+| 2. Guided Session + Rest Timer | 9/11 | In progress       | - |
 | 3. Exercise Library (Video + Cues) | 0/TBD | Not started | - |
 | 4. PRs + Progression (1RM & Overload) | 0/TBD | Not started | - |
 | 5. History & Session Summary | 0/TBD | Not started | - |
