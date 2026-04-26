@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Phase 2 Plan 01 (schema V3 migration) complete
-last_updated: "2026-04-26T11:55:00Z"
+stopped_at: Phase 2 Plan 02 (CSS tokens & component classes) complete
+last_updated: "2026-04-26T12:01:00Z"
 last_activity: 2026-04-26
 progress:
   total_phases: 7
   completed_phases: 1
   total_plans: 11
-  completed_plans: 6
-  percent: 16
+  completed_plans: 7
+  percent: 18
 ---
 
 # Project State
@@ -26,11 +26,11 @@ See: .planning/PROJECT.md (updated 2026-04-25)
 ## Current Position
 
 Phase: 2
-Plan: 02 (next — CSS tokens & component classes)
-Status: 02-01 schema V3 migration complete (Wave 1 partially done)
+Plan: 03 (next — TBD per phase backlog; visual contract now locked)
+Status: 02-02 CSS tokens & component classes complete (Phase 2 visual contract locked, additive-only to src/index.css)
 Last activity: 2026-04-26
 
-Progress: [██░░░░░░░░] 16%
+Progress: [██░░░░░░░░] 18%
 
 ## Performance Metrics
 
@@ -69,6 +69,9 @@ Recent decisions affecting current work:
 - [Phase 01]: Documented GitHub Pages private-repo caveat + Cloudflare/Netlify fallback to avoid plan gating.
 - [Phase 02-01]: D-22 honored — zero new npm deps; reuse zod@4.3.6 for V3 schema.
 - [Phase 02-01]: D-25 — V2→V3 migration drops legacy completed sets (no weight/rir to recover); session resets to 'idle'; preferences preserved with safe defaults.
+- [Phase 02-02]: D-22 honored — zero new npm deps; plain CSS + tokens (no Tailwind/Radix/shadcn).
+- [Phase 02-02]: Backfilled Phase 1 baseline tokens (--primary, --primary-2, --surface, --surface-2, --text-strong, --muted, --danger, --radius-lg/md/sm) and minimal classes (.btn, .btn-primary, .btn-success) into src/index.css as Rule 2 deviation; values come from 02-UI-SPEC.md §Color so the dark-glassmorphism vision in D-21 is now actually expressed in CSS rather than implicit.
+- [Phase 02-02]: src/index.css is purely additive (+600 lines, 0 deletions); legacy Vite-template content untouched.
 
 ### Pending Todos
 
@@ -80,6 +83,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-04-26T11:55:00Z
-Stopped at: Completed 02-01-schema-v3-migration-PLAN.md
-Resume file: .planning/phases/02-guided-session-rest-timer/02-02-css-tokens-and-classes-PLAN.md
+Last session: 2026-04-26T12:01:00Z
+Stopped at: Completed 02-02-css-tokens-and-classes-PLAN.md
+Resume file: .planning/phases/02-guided-session-rest-timer/ (next plan TBD per phase backlog)
