@@ -1,8 +1,16 @@
-import { SnapshotV1Schema, SnapshotV2Schema, type SnapshotV2 } from './schema'
+import {
+  SnapshotV1Schema,
+  SnapshotV2Schema,
+  SnapshotV3Schema,
+  type SnapshotV1,
+  type SnapshotV2,
+  type SnapshotV3,
+  type Exercise,
+} from './schema'
 import { STORAGE_KEY } from './storageKey'
 
 export type LoadSnapshotResult =
-  | { ok: true; snapshot: SnapshotV2 }
+  | { ok: true; snapshot: SnapshotV3 }
   | { ok: false; reason: 'missing' | 'invalid_json' | 'invalid_schema' }
 
 export type SaveSnapshotResult = { ok: true } | { ok: false; reason: 'quota_exceeded' }
@@ -16,7 +24,36 @@ function isQuotaExceededError(err: unknown): boolean {
   return anyErr?.code === 22 || anyErr?.code === 1014
 }
 
-export function createInitialSnapshot(): SnapshotV2 {
+export function createInitialSnapshot(): SnapshotV3 {
+  return {
+    schemaVersion: 3,
+    preferences: undefined,
+    session: {
+      status: 'idle',
+      id: undefined,
+      startedAt: undefined,
+      startedAtMs: undefined,
+      exercises: [],
+      currentExerciseIndex: 0,
+      rest: null,
+      handoff: null,
+      pendingUndo: null,
+    },
+  }
+}
+
+export function saveSnapshot(snapshot: SnapshotV3): SaveSnapshotResult {
+  const validated = SnapshotV3Schema.parse(snapshot)
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(validated))
+    return { ok: true }
+  } catch (err) {
+    if (isQuotaExceededError(err)) return { ok: false, reason: 'quota_exceeded' }
+    throw err
+  }
+}
+
+function migrateV1toV2(v1: SnapshotV1): SnapshotV2 {
   return {
     schemaVersion: 2,
     preferences: undefined,
@@ -26,19 +63,49 @@ export function createInitialSnapshot(): SnapshotV2 {
       startedAt: undefined,
       currentExerciseIndex: 0,
       exerciseName: 'Ejemplo — Press banca',
-      sets: [],
+      sets: v1.sets,
     },
   }
 }
 
-export function saveSnapshot(snapshot: SnapshotV2): SaveSnapshotResult {
-  const validated = SnapshotV2Schema.parse(snapshot)
-  try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(validated))
-    return { ok: true }
-  } catch (err) {
-    if (isQuotaExceededError(err)) return { ok: false, reason: 'quota_exceeded' }
-    throw err
+function migrateV2toV3(v2: SnapshotV2): SnapshotV3 {
+  const legacy: Exercise = {
+    exerciseId: 'legacy-0',
+    name: v2.session.exerciseName,
+    status: 'pending',
+    currentSetIndex: 0,
+    sets: v2.session.sets.map((s) => ({
+      setId: s.setId,
+      planned: s.planned,
+      // D-25: legacy V2 completed sets carry only reps + at — they lack
+      // weight/rir, so we cannot recover them as "completos" under V3.
+      // Drop completed and let the user re-record if needed.
+      completed: undefined,
+    })),
+  }
+  return {
+    schemaVersion: 3,
+    preferences:
+      v2.preferences === undefined
+        ? undefined
+        : {
+            goalFocus: v2.preferences.goalFocus,
+            equipmentNote: v2.preferences.equipmentNote,
+            restAlertSound: true,
+            restAlertVibration: true,
+            effortMetric: 'rir',
+          },
+    session: {
+      status: 'idle',
+      id: undefined,
+      startedAt: undefined,
+      startedAtMs: undefined,
+      exercises: [legacy],
+      currentExerciseIndex: 0,
+      rest: null,
+      handoff: null,
+      pendingUndo: null,
+    },
   }
 }
 
@@ -53,20 +120,16 @@ export function loadSnapshot(): LoadSnapshotResult {
     return { ok: false, reason: 'invalid_json' }
   }
 
+  const v3 = SnapshotV3Schema.safeParse(parsed)
+  if (v3.success) return { ok: true, snapshot: v3.data }
+
   const v2 = SnapshotV2Schema.safeParse(parsed)
-  if (v2.success) return { ok: true, snapshot: v2.data }
+  if (v2.success) return { ok: true, snapshot: migrateV2toV3(v2.data) }
 
-  // Migration path from V1 → V2 (no preferences; session stays idle).
   const v1 = SnapshotV1Schema.safeParse(parsed)
-  if (!v1.success) return { ok: false, reason: 'invalid_schema' }
+  if (v1.success) return { ok: true, snapshot: migrateV2toV3(migrateV1toV2(v1.data)) }
 
-  const migrated: SnapshotV2 = {
-    ...createInitialSnapshot(),
-    session: {
-      ...createInitialSnapshot().session,
-      sets: v1.data.sets,
-    },
-  }
-  return { ok: true, snapshot: migrated }
+  return { ok: false, reason: 'invalid_schema' }
 }
 
+export { migrateV1toV2, migrateV2toV3 }
