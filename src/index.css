@@ -15,6 +15,41 @@
   --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
   --mono: ui-monospace, Consolas, monospace;
 
+  /* Phase 1 baseline tokens (added retroactively in Phase 2 plan 02-02 to honor D-21
+   * "mantener dark glassmorphism actual y tokens CSS existentes". Phase 1 shipped with
+   * inline styles only; these tokens encode the visual contract recorded in
+   * 02-UI-SPEC.md §Color and §Spacing for downstream Phase 2 components to consume.) */
+  --primary: #7c5cff;
+  --primary-2: #22c55e;
+  --surface: rgba(255, 255, 255, 0.06);
+  --surface-2: rgba(255, 255, 255, 0.10);
+  --text-strong: #f3f4f6;
+  --muted: #9ca3af;
+  --danger: #ffb4b4;
+  --radius-lg: 18px;
+  --radius-md: 14px;
+  --radius-sm: 12px;
+
+  /* Phase 2 tokens */
+  --radius-pill: 999px;
+  --touch-min: 56px;
+  --display-set: clamp(48px, 14vw, 72px);
+  --accent-flash: color-mix(in srgb, var(--primary-2), transparent 30%);
+  --strip-height: 64px;
+  --strip-height-active: 88px;
+
+  /* Spacing scale (multiples of 4) */
+  --sp-xs: 4px;
+  --sp-sm: 8px;
+  --sp-md: 16px;
+  --sp-lg: 24px;
+  --sp-xl: 32px;
+  --sp-2xl: 48px;
+  --sp-3xl: 64px;
+
+  /* Phase 2 status colors */
+  --warn: #f59e0b;
+
   font: 18px/145% var(--sans);
   letter-spacing: 0.18px;
   color-scheme: light dark;
@@ -47,6 +82,16 @@
 
   #social .button-icon {
     filter: invert(1) brightness(2);
+  }
+}
+
+/* Phase 2 light-mode overrides (created by plan 02-02; the file did not previously
+ * have a prefers-color-scheme: light block. Only --accent-flash is overridden — the
+ * rest of the light-mode visual contract is grandfathered to the existing :root
+ * defaults until plans 02-07/08 polish per UI-SPEC §Color light column.) */
+@media (prefers-color-scheme: light) {
+  :root {
+    --accent-flash: color-mix(in srgb, var(--primary-2), transparent 50%);
   }
 }
 
