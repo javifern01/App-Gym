@@ -12,7 +12,7 @@ Entregar una web “local-first” que guía una sesión de gimnasio paso a paso
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Foundation + Deploy** - App base lista para ejecutar desde GitHub Pages con datos locales persistentes.
+- [x] **Phase 1: Foundation + Deploy** - App base lista para ejecutar desde GitHub Pages con datos locales persistentes. (completed 2026-04-26)
 - [ ] **Phase 2: Guided Session + Rest Timer** - Flujo de entreno guiado con registro por set y descansos medidos.
 - [ ] **Phase 3: Exercise Library (Video + Cues)** - Biblioteca de ejercicios navegable y soporte técnico visible durante la sesión.
 - [ ] **Phase 4: PRs + Progression (1RM & Overload)** - Progresión automática con PRs con contexto, 1RM histórico y sugerencias de sobrecarga.
@@ -30,12 +30,12 @@ Decimal phases appear between their surrounding integers in numeric order.
   1. Un usuario puede abrir la app desde GitHub Pages (o equivalente estático) y ver la interfaz inicial sin pasos manuales extra.
   2. Desde un repo limpio, el build/deploy es reproducible siguiendo los pasos documentados.
   3. Si un usuario inicia una sesión y recarga el navegador, puede continuar la misma sesión sin perder el progreso.
-**Plans**: 4 plans
+**Plans**: 4/4 plans complete
 Plans:
-- [ ] 01-PLAN.md — Greenfield Vite+React+TS, `base: './'`, lockfile, minimal Vitest, README dev section (Wave 1; DEPL-01/02 scaffold)
-- [ ] 04-PLAN.md — Zod `localStorage` snapshot + Vitest + Playwright smoke (Wave 1 after 01; DEPL-01/02 verify + SESS-03 foundation)
-- [ ] 02-PLAN.md — Minimal wizard, empty state, session shell, auto-save + auto-resume, Playwright reload E2E (Wave 2; SESS-03; depends 01+04)
-- [ ] 03-PLAN.md — README deploy + GitHub Actions Pages workflow (Wave 2; DEPL-01/02; depends 01+04+02)
+- [x] 01-PLAN.md — Greenfield Vite+React+TS, `base: './'`, lockfile, minimal Vitest, README dev section (Wave 1; DEPL-01/02 scaffold)
+- [x] 04-PLAN.md — Zod `localStorage` snapshot + Vitest + Playwright smoke (Wave 1 after 01; DEPL-01/02 verify + SESS-03 foundation)
+- [x] 02-PLAN.md — Minimal wizard, empty state, session shell, auto-save + auto-resume, Playwright reload E2E (Wave 2; SESS-03; depends 01+04)
+- [x] 03-PLAN.md — README deploy + GitHub Actions Pages workflow (Wave 2; DEPL-01/02; depends 01+04+02)
 **UI hint**: yes
 
 ### Phase 2: Guided Session + Rest Timer
@@ -48,7 +48,19 @@ Plans:
   3. Al completar un set, se inicia un descanso y al finalizar se avisa (visual + sonido opcional).
   4. El usuario puede omitir/realizar un ejercicio y el resumen de la sesión refleja el cambio.
   5. El usuario puede ver para una sesión la desviación media entre descanso prescrito y descanso real.
-**Plans**: TBD
+**Plans**: 11 plans
+Plans:
+- [ ] 02-01-schema-v3-migration-PLAN.md — Bump SnapshotSchema V2→V3 (D-24) + migrateV2toV3 (D-25); SESS-02 / REST-02 schema (Wave 1)
+- [ ] 02-02-css-tokens-and-classes-PLAN.md — Phase 2 CSS tokens + new component classes per UI-SPEC (Wave 1; SESS-01 visual scaffolding)
+- [ ] 02-03-validation-and-fast-rest-knob-PLAN.md — Test fast-rest knob `?restMul=…` + populate Per-Task Verification Map (Wave 1; SESS-01/02/04, REST-01/02)
+- [ ] 02-04-fsm-core-PLAN.md — Pure sessionReducer, action creators, seed routine (D-15) (Wave 2; SESS-01/02/04)
+- [ ] 02-05-selectors-and-utils-PLAN.md — selectNextAction (SESS-01 contract), formatTime, computeRestDeviation (Wave 2; SESS-01, REST-02)
+- [ ] 02-06-primitive-hooks-PLAN.md — useRestTimer / useAudioCue / useVibration / useWakeLock / useUndoableToast (Wave 2; REST-01, SESS-04)
+- [ ] 02-07-session-active-ui-PLAN.md — FocusCard / ExerciseStrip / RestStrip / RestPanel (Wave 3; SESS-01, SESS-02, REST-01)
+- [ ] 02-08-session-aux-ui-PLAN.md — HandoffOverlay / Toast / PauseDialog / SummaryScreen (Wave 3; SESS-01, SESS-04, REST-02)
+- [ ] 02-09-pre-session-ui-updates-PLAN.md — EmptyState seed preview + audio prime; Wizard V3 toggles (Wave 3; SESS-04, REST-01)
+- [ ] 02-10-app-orchestration-PLAN.md — useReducer FSM + dispatchTimed + persistence boundary + side-effects + view routing (Wave 4; SESS-01/02/04, REST-01/02)
+- [ ] 02-11-e2e-tests-PLAN.md — Playwright happy-path + skip + pause/resume + migration + reload (Wave 5; SESS-01/02/04, REST-01/02)
 **UI hint**: yes
 
 ### Phase 3: Exercise Library (Video + Cues)
@@ -110,8 +122,8 @@ Phases execute in numeric order: 2 → 2.1 → 2.2 → 3 → 3.1 → 4
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation + Deploy | 0/3 | Not started | - |
-| 2. Guided Session + Rest Timer | 0/TBD | Not started | - |
+| 1. Foundation + Deploy | 4/4 | Complete    | 2026-04-26 |
+| 2. Guided Session + Rest Timer | 0/11 | Planning complete | - |
 | 3. Exercise Library (Video + Cues) | 0/TBD | Not started | - |
 | 4. PRs + Progression (1RM & Overload) | 0/TBD | Not started | - |
 | 5. History & Session Summary | 0/TBD | Not started | - |
