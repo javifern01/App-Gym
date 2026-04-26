@@ -148,8 +148,20 @@ export function sessionReducer(state: SessionState, action: Action): SessionStat
 
     case 'SKIP_REST':
     case 'REST_DONE': {
-      if (state.session.rest == null) return state
-      return { ...state, session: { ...state.session, rest: null } }
+      const rest = state.session.rest
+      if (rest == null) return state
+      const actualSeconds = Math.round((action.payload.nowMs - rest.startedAtMs) / 1000)
+      const exercises = state.session.exercises.map((ex, eIdx) => {
+        if (eIdx !== rest.exerciseIndex) return ex
+        return {
+          ...ex,
+          sets: ex.sets.map((set, sIdx) => {
+            if (sIdx !== rest.setIndex || set.completed == null) return set
+            return { ...set, completed: { ...set.completed, rest_actual_s: actualSeconds } }
+          }),
+        }
+      })
+      return { ...state, session: { ...state.session, exercises, rest: null } }
     }
 
     case 'EXTEND_REST': {
