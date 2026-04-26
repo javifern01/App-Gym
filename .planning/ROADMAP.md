@@ -48,9 +48,9 @@ Plans:
   3. Al completar un set, se inicia un descanso y al finalizar se avisa (visual + sonido opcional).
   4. El usuario puede omitir/realizar un ejercicio y el resumen de la sesión refleja el cambio.
   5. El usuario puede ver para una sesión la desviación media entre descanso prescrito y descanso real.
-**Plans**: 11 plans
+**Plans**: 1/11 plans complete
 Plans:
-- [ ] 02-01-schema-v3-migration-PLAN.md — Bump SnapshotSchema V2→V3 (D-24) + migrateV2toV3 (D-25); SESS-02 / REST-02 schema (Wave 1)
+- [x] 02-01-schema-v3-migration-PLAN.md — Bump SnapshotSchema V2→V3 (D-24) + migrateV2toV3 (D-25); SESS-02 / REST-02 schema (Wave 1)
 - [ ] 02-02-css-tokens-and-classes-PLAN.md — Phase 2 CSS tokens + new component classes per UI-SPEC (Wave 1; SESS-01 visual scaffolding)
 - [ ] 02-03-validation-and-fast-rest-knob-PLAN.md — Test fast-rest knob `?restMul=…` + populate Per-Task Verification Map (Wave 1; SESS-01/02/04, REST-01/02)
 - [ ] 02-04-fsm-core-PLAN.md — Pure sessionReducer, action creators, seed routine (D-15) (Wave 2; SESS-01/02/04)
@@ -123,7 +123,7 @@ Phases execute in numeric order: 2 → 2.1 → 2.2 → 3 → 3.1 → 4
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation + Deploy | 4/4 | Complete    | 2026-04-26 |
-| 2. Guided Session + Rest Timer | 0/11 | Planning complete | - |
+| 2. Guided Session + Rest Timer | 1/11 | In progress       | - |
 | 3. Exercise Library (Video + Cues) | 0/TBD | Not started | - |
 | 4. PRs + Progression (1RM & Overload) | 0/TBD | Not started | - |
 | 5. History & Session Summary | 0/TBD | Not started | - |

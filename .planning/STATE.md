@@ -2,16 +2,16 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: planning
-stopped_at: Phase 2 UI-SPEC approved
-last_updated: "2026-04-26T11:01:04.047Z"
+status: executing
+stopped_at: Phase 2 Plan 01 (schema V3 migration) complete
+last_updated: "2026-04-26T11:55:00Z"
 last_activity: 2026-04-26
 progress:
   total_phases: 7
   completed_phases: 1
-  total_plans: 4
-  completed_plans: 5
-  percent: 14
+  total_plans: 11
+  completed_plans: 6
+  percent: 16
 ---
 
 # Project State
@@ -26,11 +26,11 @@ See: .planning/PROJECT.md (updated 2026-04-25)
 ## Current Position
 
 Phase: 2
-Plan: Not started
-Status: Ready to plan (Phase 1 shipped)
+Plan: 02 (next — CSS tokens & component classes)
+Status: 02-01 schema V3 migration complete (Wave 1 partially done)
 Last activity: 2026-04-26
 
-Progress: [██░░░░░░░░] 14%
+Progress: [██░░░░░░░░] 16%
 
 ## Performance Metrics
 
@@ -55,6 +55,7 @@ Progress: [██░░░░░░░░] 14%
 | Phase 01-foundation-deploy P04 | 3m | 3 tasks | 9 files |
 | Phase 01 P03 | 5m | 2 tasks | 2 files |
 | Phase 01-foundation-deploy P02 | 15m | 2 tasks | 8 files |
+| Phase 02 P01 | 5m | 3 tasks | 3 files |
 
 ## Accumulated Context
 
@@ -66,6 +67,8 @@ Recent decisions affecting current work:
 - Phase 1: Deploy estático desde GitHub como requisito temprano.
 - [Phase 01]: Pin CI Node to 22 (no .nvmrc present) to align with local recommendation.
 - [Phase 01]: Documented GitHub Pages private-repo caveat + Cloudflare/Netlify fallback to avoid plan gating.
+- [Phase 02-01]: D-22 honored — zero new npm deps; reuse zod@4.3.6 for V3 schema.
+- [Phase 02-01]: D-25 — V2→V3 migration drops legacy completed sets (no weight/rir to recover); session resets to 'idle'; preferences preserved with safe defaults.
 
 ### Pending Todos
 
@@ -77,6 +80,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-04-26T11:01:04.038Z
-Stopped at: Phase 2 UI-SPEC approved
-Resume file: .planning/phases/02-guided-session-rest-timer/02-UI-SPEC.md
+Last session: 2026-04-26T11:55:00Z
+Stopped at: Completed 02-01-schema-v3-migration-PLAN.md
+Resume file: .planning/phases/02-guided-session-rest-timer/02-02-css-tokens-and-classes-PLAN.md
