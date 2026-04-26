@@ -1,7 +1,7 @@
 ---
 phase: 2
 slug: guided-session-rest-timer
-status: draft
+status: approved
 shadcn_initialized: false
 preset: none
 created: 2026-04-26
