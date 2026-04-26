@@ -47,3 +47,4 @@ export type Action =
   | { type: 'DISCARD' }
   | { type: 'COMPLETE_SESSION'; payload: { nowMs: number; nowIso: string } }
   | { type: 'DISMISS_HANDOFF' }
+  | { type: 'SET_PREFERENCES'; payload: { preferences: import('../persist/schema').PreferencesV3 } }

@@ -290,6 +290,10 @@ export function sessionReducer(state: SessionState, action: Action): SessionStat
       }
     }
 
+    case 'SET_PREFERENCES': {
+      return { ...state, preferences: action.payload.preferences }
+    }
+
     default: {
       const _exhaustive: never = action
       void _exhaustive

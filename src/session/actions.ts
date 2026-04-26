@@ -68,3 +68,8 @@ export const completeSession = (nowMs: number, nowIso: string): Action => ({
 })
 
 export const dismissHandoff = (): Action => ({ type: 'DISMISS_HANDOFF' })
+
+export const setPreferences = (preferences: import('../persist/schema').PreferencesV3): Action => ({
+  type: 'SET_PREFERENCES',
+  payload: { preferences },
+})
