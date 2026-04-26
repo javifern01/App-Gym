@@ -33,7 +33,7 @@ export function RestStrip({ remainingMs, isExpanded, onExpand, onSkipRest, onExt
     .join(' ')
 
   return (
-    <div className={className} role="status" aria-live="polite">
+    <div className={className} role="status" aria-live="polite" data-testid="rest-strip">
       <button
         type="button"
         className="rest-strip__label"
@@ -43,10 +43,10 @@ export function RestStrip({ remainingMs, isExpanded, onExpand, onSkipRest, onExt
         {finished ? 'Listo · pulsa para continuar' : <>Descansando · {formatTime(seconds)}</>}
       </button>
       <div className="actions" style={{ display: 'flex', gap: 'var(--sp-sm)' }}>
-        <button type="button" className="btn" onClick={onExtendRest} disabled={finished} aria-label="Añadir 15 segundos">
+        <button type="button" className="btn" data-testid="rest-strip-extend" onClick={onExtendRest} disabled={finished} aria-label="Añadir 15 segundos">
           +15s
         </button>
-        <button type="button" className="btn" onClick={onSkipRest}>
+        <button type="button" className="btn" data-testid="rest-strip-skip" onClick={onSkipRest}>
           {finished ? '✓ Hecho' : 'Saltar'}
         </button>
       </div>

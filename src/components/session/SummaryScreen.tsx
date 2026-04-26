@@ -45,7 +45,7 @@ export function SummaryScreen({ snapshot, endedAtMs, onStartNewSession }: Summar
       : `Δ descanso: ${dev.meanDeltaSeconds > 0 ? '+' : ''}${dev.meanDeltaSeconds} s`
 
   return (
-    <section className="summary-card" aria-labelledby="summary-title">
+    <section className="summary-card" aria-labelledby="summary-title" data-testid="summary">
       <h2 id="summary-title" className="summary-card__title">¡Sesión completada!</h2>
 
       <div className="summary-card__chips">
@@ -56,6 +56,7 @@ export function SummaryScreen({ snapshot, endedAtMs, onStartNewSession }: Summar
             'summary-chip ' +
             (devClass === 'ok' ? 'summary-chip--ok' : devClass === 'warn' ? 'summary-chip--warn' : devClass === 'bad' ? 'summary-chip--bad' : '')
           }
+          data-testid="summary-rest-deviation"
         >
           {devLabel}
         </span>
@@ -78,7 +79,7 @@ export function SummaryScreen({ snapshot, endedAtMs, onStartNewSession }: Summar
       </ul>
 
       <div className="actions">
-        <button type="button" className="btn btn-primary" onClick={onStartNewSession}>
+        <button type="button" className="btn btn-primary" data-testid="summary-start-new" onClick={onStartNewSession}>
           Empezar otra sesión
         </button>
       </div>

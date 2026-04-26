@@ -44,7 +44,7 @@ export function FocusCard({
   const incWeight = () => setWeight((w) => Math.min(999, +(w + 2.5).toFixed(2)))
 
   return (
-    <section className="focus-card" aria-labelledby="focus-card-title">
+    <section className="focus-card" aria-labelledby="focus-card-title" data-testid="focus-card">
       <header className="ex-strip__header">
         <h2 id="focus-card-title" className="ex-strip__name" style={{ margin: 0 }}>
           {exerciseName}
@@ -123,11 +123,12 @@ export function FocusCard({
         <button
           type="button"
           className="btn btn-success"
+          data-testid="focus-log-set"
           onClick={() => onLogSet(reps, weight, rir)}
         >
           ✓ Hecho
         </button>
-        <button type="button" className="btn" onClick={onPause}>
+        <button type="button" className="btn" data-testid="focus-pause" onClick={onPause}>
           Pausar
         </button>
       </div>

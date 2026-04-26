@@ -15,17 +15,17 @@ export interface PauseDialogProps {
  */
 export function PauseDialog({ elapsedSeconds, setsCompleted, onResume, onDiscard }: PauseDialogProps) {
   return (
-    <div className="pause-dialog" role="dialog" aria-modal="true" aria-labelledby="pause-dialog-title">
+    <div className="pause-dialog" role="dialog" aria-modal="true" aria-labelledby="pause-dialog-title" data-testid="pause-dialog">
       <div className="pause-dialog__card">
         <h2 id="pause-dialog-title" className="pause-dialog__title">Sesión en pausa</h2>
         <p className="hint">
           Llevas {Math.floor(elapsedSeconds / 60)} min · {setsCompleted} sets registrados.
         </p>
         <div className="pause-dialog__actions">
-          <button type="button" className="btn btn-primary" onClick={onResume}>
+          <button type="button" className="btn btn-primary" data-testid="pause-resume" onClick={onResume}>
             Reanudar
           </button>
-          <button type="button" className="btn btn-danger-outline" onClick={onDiscard}>
+          <button type="button" className="btn btn-danger-outline" data-testid="pause-discard" onClick={onDiscard}>
             Descartar sesión
           </button>
         </div>

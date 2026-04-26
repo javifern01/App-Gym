@@ -12,12 +12,13 @@ export interface ToastProps {
 export function Toast({ entry, onDismiss }: ToastProps) {
   if (!entry) return null
   return (
-    <div className="toast" role="status" aria-live="polite">
+    <div className="toast" role="status" aria-live="polite" data-testid="toast">
       <span>{entry.message}</span>
       {entry.actionLabel && entry.onAction ? (
         <button
           type="button"
           className="btn"
+          data-testid="toast-action"
           onClick={() => {
             entry.onAction?.()
           }}
@@ -25,7 +26,7 @@ export function Toast({ entry, onDismiss }: ToastProps) {
           {entry.actionLabel}
         </button>
       ) : null}
-      <button type="button" className="btn" onClick={onDismiss} aria-label="Cerrar aviso">
+      <button type="button" className="btn" data-testid="toast-dismiss" onClick={onDismiss} aria-label="Cerrar aviso">
         ×
       </button>
     </div>

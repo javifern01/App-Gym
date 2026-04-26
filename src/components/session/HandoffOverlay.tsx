@@ -14,10 +14,10 @@ export interface HandoffOverlayProps {
 export function HandoffOverlay({ nextExerciseName, msRemaining, onContinue }: HandoffOverlayProps) {
   const seconds = Math.max(0, Math.ceil(msRemaining / 1000))
   return (
-    <div className="handoff-overlay" role="dialog" aria-label="Siguiente ejercicio">
+    <div className="handoff-overlay" role="dialog" aria-label="Siguiente ejercicio" data-testid="handoff-overlay">
       <h2 className="handoff-overlay__title">Siguiente: {nextExerciseName}</h2>
       <p className="handoff-overlay__count" aria-live="polite">{seconds}</p>
-      <button type="button" className="btn btn-primary" onClick={onContinue}>
+      <button type="button" className="btn btn-primary" data-testid="handoff-continue" onClick={onContinue}>
         Empezar ya
       </button>
     </div>
