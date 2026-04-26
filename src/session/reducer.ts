@@ -1,7 +1,6 @@
 import type {
   Exercise,
   SessionV3,
-  SnapshotV3,
   RestState,
   HandoffState,
   SkipUndoToken,
