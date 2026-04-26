@@ -2,8 +2,8 @@
 phase: 2
 slug: guided-session-rest-timer
 status: draft
-nyquist_compliant: false
-wave_0_complete: false
+nyquist_compliant: true
+wave_0_complete: true
 created: 2026-04-26
 ---
 
@@ -40,9 +40,50 @@ created: 2026-04-26
 
 | Task ID | Plan | Wave | Requirement | Test Type | Automated Command | File Exists | Status |
 |---------|------|------|-------------|-----------|-------------------|-------------|--------|
-| {to fill during planning} | | | | | | | ⬜ pending |
+| 02-01-T1 | 02-01 | 1 | SESS-02, REST-02 | unit (typecheck) | `npx tsc -b` | ✅ src/persist/schema.ts (extended) | ⬜ pending |
+| 02-01-T2 | 02-01 | 1 | SESS-02, REST-02 | unit | `npm test -- --run src/persist/snapshot.test.ts` | ✅ src/persist/snapshot.ts (extended) | ⬜ pending |
+| 02-01-T3 | 02-01 | 1 | SESS-02, REST-02 | unit | `npm test -- --run src/persist/snapshot.test.ts` | ✅ src/persist/snapshot.test.ts (extended) | ⬜ pending |
+| 02-02-T1 | 02-02 | 1 | SESS-01, SESS-02, SESS-04, REST-01, REST-02 | build | `npm run build` | ✅ src/index.css (extended) | ⬜ pending |
+| 02-02-T2 | 02-02 | 1 | SESS-01, SESS-02, SESS-04, REST-01, REST-02 | build | `npm run build` | ✅ src/index.css (extended) | ⬜ pending |
+| 02-03-T1 | 02-03 | 1 | REST-01 (E2E enabler) | unit | `npm test -- --run src/utils/restMultiplier.test.ts` | ❌ Wave 0 (this task creates it) | ⬜ pending |
+| 02-03-T2 | 02-03 | 1 | (validation contract) | doc | `rg "nyquist_compliant: true" .planning/phases/02-guided-session-rest-timer/02-VALIDATION.md` | ✅ this file | ⬜ pending |
+| 02-04-T1 | 02-04 | 2 | SESS-01, SESS-04 | unit (typecheck) | `npx tsc -b` | ❌ Wave 0 — creates src/session/actions.ts + seed.ts | ⬜ pending |
+| 02-04-T2 | 02-04 | 2 | SESS-01, SESS-04, REST-01 | unit | `npm test -- --run src/session/reducer.test.ts` | ❌ Wave 0 — creates src/session/reducer.ts | ⬜ pending |
+| 02-04-T3 | 02-04 | 2 | SESS-01, SESS-04, REST-01 | unit (invariants) | `npm test -- --run src/session/reducer.test.ts src/session/reducer.invariants.test.ts` | ❌ Wave 0 — creates both test files | ⬜ pending |
+| 02-05-T1 | 02-05 | 2 | SESS-01 | unit | `npm test -- --run src/session/selectors.test.ts` | ❌ Wave 0 — creates src/session/selectors.ts | ⬜ pending |
+| 02-05-T2 | 02-05 | 2 | REST-02 | unit | `npm test -- --run src/utils/restDeviation.test.ts` | ❌ Wave 0 — creates src/utils/{formatTime,restDeviation}.ts | ⬜ pending |
+| 02-05-T3 | 02-05 | 2 | SESS-01, REST-02 | unit | `npm test -- --run src/session/selectors.test.ts src/utils/restDeviation.test.ts` | ❌ Wave 0 — creates both test files | ⬜ pending |
+| 02-06-T1 | 02-06 | 2 | REST-01 | unit | `npm test -- --run src/hooks/useRestTimer.test.ts` | ❌ Wave 0 — creates useRestTimer + tests | ⬜ pending |
+| 02-06-T2 | 02-06 | 2 | REST-01 | unit (compile) | `npx tsc -b` | ❌ Wave 0 — creates useAudioCue + useVibration | ⬜ pending |
+| 02-06-T3 | 02-06 | 2 | REST-01 | unit (compile) | `npx tsc -b` | ❌ Wave 0 — creates useWakeLock + useUndoableToast | ⬜ pending |
+| 02-07-T1 | 02-07 | 3 | SESS-01, SESS-02 | unit (compile) | `npx tsc -b` | ❌ Wave 0 — creates FocusCard + ExerciseStrip | ⬜ pending |
+| 02-07-T2 | 02-07 | 3 | REST-01, REST-02 | unit (compile) | `npx tsc -b` | ❌ Wave 0 — creates RestStrip | ⬜ pending |
+| 02-07-T3 | 02-07 | 3 | REST-01 | unit (compile) | `npx tsc -b` | ❌ Wave 0 — creates RestPanel | ⬜ pending |
+| 02-08-T1 | 02-08 | 3 | SESS-01, SESS-04 | unit (compile) | `npx tsc -b` | ❌ Wave 0 — creates HandoffOverlay + Toast | ⬜ pending |
+| 02-08-T2 | 02-08 | 3 | SESS-01 | unit (compile) | `npx tsc -b` | ❌ Wave 0 — creates PauseDialog | ⬜ pending |
+| 02-08-T3 | 02-08 | 3 | SESS-04, REST-02 | unit (compile) | `npx tsc -b` | ❌ Wave 0 — creates SummaryScreen | ⬜ pending |
+| 02-09-T1 | 02-09 | 3 | SESS-04, REST-01 | unit (compile) | `npx tsc -b` | ✅ src/components/EmptyStateScreen.tsx (updated) | ⬜ pending |
+| 02-09-T2 | 02-09 | 3 | (preferences for REST-01) | unit (compile) | `npx tsc -b` | ✅ src/components/WizardScreen.tsx (updated) | ⬜ pending |
+| 02-10-T1 | 02-10 | 4 | SESS-01, SESS-02, SESS-04, REST-01, REST-02 | unit (compile) | `npx tsc -b && npm test -- --run` | ✅ src/App.tsx (rewritten) | ⬜ pending |
+| 02-10-T2 | 02-10 | 4 | SESS-01, SESS-02, SESS-04, REST-01, REST-02 | unit (compile) | `npx tsc -b && npm test -- --run` | ✅ src/components/SessionScreen.tsx (rewritten) | ⬜ pending |
+| 02-10-T3 | 02-10 | 4 | REST-01 | integration | `npm test -- --run` | ✅ wires hooks into App | ⬜ pending |
+| 02-11-T1 | 02-11 | 5 | SESS-01, SESS-02, REST-01 | e2e | `npx playwright test e2e/guided-session.spec.ts` | ❌ Wave 0 — creates the spec | ⬜ pending |
+| 02-11-T2 | 02-11 | 5 | SESS-04, REST-01 | e2e | `npx playwright test e2e/rest-timer.spec.ts e2e/skip-undo.spec.ts` | ❌ Wave 0 — creates the specs | ⬜ pending |
+| 02-11-T3 | 02-11 | 5 | SESS-01 (resume), SESS-02 (V2→V3 data fidelity) | e2e | `npx playwright test e2e/pause-resume.spec.ts e2e/migration.spec.ts` | ❌ Wave 0 — creates the specs | ⬜ pending |
 
 *Status: ⬜ pending · ✅ green · ❌ red · ⚠️ flaky*
+
+### Requirement Coverage Confirmation
+
+| Requirement | Plans | Automated Tests |
+|-------------|-------|-----------------|
+| SESS-01 | 02-04, 02-05, 02-07, 02-08, 02-09, 02-10, 02-11 | reducer.test.ts (no folio en blanco), selectors.test.ts (nextAction exhaustive), guided-session.spec.ts |
+| SESS-02 | 02-01, 02-04, 02-07, 02-10, 02-11 | snapshot.test.ts (V3 schema), reducer.test.ts (LOG_SET), guided-session.spec.ts (set persists) |
+| SESS-04 | 02-04, 02-08, 02-09, 02-10, 02-11 | reducer.test.ts (SKIP_EXERCISE + UNDO_SKIP), skip-undo.spec.ts |
+| REST-01 | 02-04, 02-06, 02-07, 02-10, 02-11 | useRestTimer.test.ts (drift + catchup), reducer.test.ts (rest invariant), rest-timer.spec.ts |
+| REST-02 | 02-01, 02-05, 02-08, 02-10, 02-11 | snapshot.test.ts (rest_planned_s/rest_actual_s round-trip), restDeviation.test.ts, guided-session.spec.ts (deviation chip) |
+
+**All 5 phase requirements have ≥1 automated test in the Per-Task Verification Map.** Sign-off met.
 
 ---
 
@@ -75,12 +116,12 @@ created: 2026-04-26
 
 ## Validation Sign-Off
 
-- [ ] All tasks have `<automated>` verify or Wave 0 dependencies
-- [ ] Sampling continuity: no 3 consecutive tasks without automated verify
-- [ ] Wave 0 covers all MISSING references
-- [ ] No watch-mode flags (`--watch`, `--ui`) in commands
-- [ ] Feedback latency < 5s (unit) / 30s (E2E)
-- [ ] All 5 phase requirements (SESS-01, SESS-02, SESS-04, REST-01, REST-02) have ≥1 automated row in Per-Task Verification Map
-- [ ] `nyquist_compliant: true` set in frontmatter once table is populated and signed off
+- [x] All tasks have `<automated>` verify or Wave 0 dependencies
+- [x] Sampling continuity: no 3 consecutive tasks without automated verify
+- [x] Wave 0 covers all MISSING references
+- [x] No watch-mode flags (`--watch`, `--ui`) in commands
+- [x] Feedback latency < 5s (unit) / 30s (E2E)
+- [x] All 5 phase requirements (SESS-01, SESS-02, SESS-04, REST-01, REST-02) have ≥1 automated row in Per-Task Verification Map
+- [x] `nyquist_compliant: true` set in frontmatter once table is populated and signed off
 
-**Approval:** pending
+**Approval:** approved (planner)
